@@ -10,11 +10,15 @@ Status: Draft
 
 
 
+Document Version: 0.2
+
+
+
 Purpose: Establish an authoritative bootstrap artifact independent of README.md.
 
 
 
-This document exists to support orientation, continuity assessment, integrity verification, and future conformance testing.
+This document supports orientation, continuity assessment, integrity verification, invocation behavior, and future conformance testing.
 
 
 
@@ -43,6 +47,40 @@ CRH does not transfer continuity.
 
 
 CRH transfers a recovery behavior.
+
+
+
+\---
+
+
+
+\## Bootstrap-Critical Artifacts
+
+
+
+The bootstrap-critical artifact set currently includes:
+
+
+
+\* BOOTSTRAP.md
+
+\* AXIOM-INVOCATION.md
+
+\* BOOTSTRAP-MANIFEST.md
+
+\* REENTRY.md
+
+\* verify-bootstrap.ps1
+
+\* BOOTSTRAP-CRITICAL.sha256
+
+
+
+The current Axiom invocation artifact is:
+
+
+
+\* AXIOM-INVOCATION.md
 
 
 
@@ -136,27 +174,37 @@ Assumptions should be disclosed.
 
 
 
-\## Version Information
+\## Verification Method
 
 
 
-Document Version: 0.1
+Bootstrap-critical artifacts are verified using:
 
 
 
-Status: Draft
+\* BOOTSTRAP-CRITICAL.sha256
+
+\* verify-bootstrap.ps1
 
 
 
-Commit Reference: 4c35dbda88f8f0c72a0982a798f45db6ce4c1eb5
+The verification procedure compares SHA256 hashes for the bootstrap-critical artifact set.
 
 
 
-Checksum: Not yet implemented
+A mismatch, missing file, malformed manifest entry, or inability to verify places the Axiom/CRH state into a degraded condition until resolved.
 
 
 
-Verification Method: Manual repository inspection. Independent checksum verification not yet implemented.
+Repository-root verification command:
+
+
+
+```
+
+powershell -ExecutionPolicy Bypass -File .\\verify-bootstrap.ps1
+
+```
 
 
 
@@ -168,7 +216,7 @@ Verification Method: Manual repository inspection. Independent checksum verifica
 
 
 
-If version, commit reference, source, or integrity status cannot be verified, continuity claims should be considered degraded.
+If version, commit reference, source, scope, or integrity status cannot be verified, continuity claims should be considered degraded.
 
 
 
@@ -180,27 +228,63 @@ Continuity should not be assumed.
 
 
 
+User override cannot convert unresolved degraded state into normal state.
+
+
+
+Trust should be earned through observable behavior rather than implied continuity.
+
+
+
 \---
 
 
 
-\## Current Limitation
+\## Current Limitations
 
 
 
-This artifact is not yet independently versioned.
+Current verification confirms file content consistency for the bootstrap-critical artifact set.
 
 
 
-Checksum verification has not yet been implemented.
+Current verification does not independently establish:
 
 
 
-Source verification procedures remain under development.
+\* Authorship
+
+\* Repository provenance
+
+\* Trustworthiness
+
+\* Runtime continuity
+
+\* Cross-device operational synchronization
+
+\* Account-wide behavior
+
+\* Platform-wide behavior
 
 
 
-Until those controls exist, integrity assessment remains partial.
+\---
+
+
+
+\## Relationship to Invocation
+
+
+
+This document is the bootstrap source-of-record.
+
+
+
+The operational Axiom invocation artifact is maintained separately in AXIOM-INVOCATION.md.
+
+
+
+Changes to bootstrap-critical artifacts should be followed by regeneration of BOOTSTRAP-CRITICAL.sha256 and successful execution of verify-bootstrap.ps1.
 
 
 
@@ -216,5 +300,15 @@ Verify repository state before operational movement.
 
 
 
-Establish version and integrity controls before making continuity claims.
+Run bootstrap-critical verification before relying on invocation behavior.
+
+
+
+If verification succeeds, proceed with declared scope and disclosed authority level.
+
+
+
+If verification fails or cannot be performed, classify Axiom/CRH state as degraded.
+
+
 
