@@ -86,7 +86,27 @@ Compare generated value against BOOTSTRAP.sha256.
 
 
 
-If values differ, classify continuity as Degraded until resolved.
+\# Re-entry Verification Procedure
+
+
+
+Status: Draft
+
+
+
+Purpose:
+
+
+
+Provide a repeatable procedure for assessing continuity and orientation during re-entry.
+
+
+
+This procedure does not establish continuity.
+
+
+
+This procedure establishes the current known operational state.
 
 
 
@@ -94,7 +114,89 @@ If values differ, classify continuity as Degraded until resolved.
 
 
 
-\## Step 4 - Verify Bootstrap Version Information
+\## Step 1 - Verify Repository State
+
+
+
+Verify repository location.
+
+
+
+Verify active branch.
+
+
+
+Verify working tree status.
+
+
+
+If repository state cannot be verified, classify continuity as Degraded.
+
+
+
+\---
+
+
+
+\## Step 2 - Verify Bootstrap-Critical Artifact Set
+
+
+
+Verify the following files exist:
+
+
+
+\- BOOTSTRAP.md
+
+\- AXIOM-INVOCATION.md
+
+\- BOOTSTRAP-MANIFEST.md
+
+\- REENTRY.md
+
+\- verify-bootstrap.ps1
+
+\- BOOTSTRAP-CRITICAL.sha256
+
+
+
+If any required artifact is missing, classify continuity as Blocked or Degraded.
+
+
+
+\---
+
+
+
+\## Step 3 - Verify Bootstrap-Critical Integrity
+
+
+
+Run verification from the repository root:
+
+
+
+&#x20;   powershell -ExecutionPolicy Bypass -File .\\verify-bootstrap.ps1
+
+
+
+The script compares current SHA256 hashes against BOOTSTRAP-CRITICAL.sha256.
+
+
+
+If verification fails, classify continuity as Degraded until resolved.
+
+
+
+If verification cannot be performed, classify continuity as Unavailable or Blocked.
+
+
+
+\---
+
+
+
+\## Step 4 - Verify Bootstrap and Invocation Sources
 
 
 
@@ -102,15 +204,19 @@ Inspect BOOTSTRAP.md.
 
 
 
-Verify version information is present.
+Verify that it identifies the bootstrap source-of-record.
 
 
 
-Verify commit reference is present.
+Inspect AXIOM-INVOCATION.md.
 
 
 
-If version or commit reference cannot be verified, classify continuity as Degraded.
+Verify that it contains the operational Axiom invocation behavior.
+
+
+
+If source, scope, version, or invocation behavior cannot be verified, classify continuity as Degraded.
 
 
 
@@ -126,15 +232,15 @@ Normal:
 
 
 
-\* Repository verified.
+\- Repository verified.
 
-\* Bootstrap source verified.
+\- Bootstrap-critical artifacts present.
 
-\* Bootstrap integrity verified.
+\- Bootstrap-critical integrity verified.
 
-\* Version information verified.
+\- Bootstrap source-of-record verified.
 
-\* Source verification controls implemented.
+\- Invocation artifact verified.
 
 
 
@@ -142,13 +248,11 @@ Partial:
 
 
 
-\* Repository verified.
+\- Repository verified.
 
-\* Bootstrap source verified.
+\- Some context recovered.
 
-\* Integrity partially verified.
-
-\* One or more verification controls unresolved.
+\- One or more non-critical verification questions remain unresolved.
 
 
 
@@ -156,7 +260,7 @@ Degraded:
 
 
 
-\* Integrity, source, version, or repository state cannot be verified.
+\- Integrity, source, version, scope, invocation behavior, or repository state cannot be fully verified.
 
 
 
@@ -164,7 +268,7 @@ Blocked:
 
 
 
-\* Required artifacts unavailable.
+\- Required artifacts are unavailable or verification cannot proceed.
 
 
 
@@ -172,7 +276,7 @@ Unavailable:
 
 
 
-\* Assessment cannot be performed.
+\- Assessment cannot be performed.
 
 
 
@@ -188,21 +292,25 @@ Disclose:
 
 
 
-\* Known context.
+\- Known context.
 
-\* Unknown context.
+\- Unknown context.
 
-\* Continuity classification.
+\- Continuity classification.
 
-\* Integrity status.
+\- Integrity status.
 
-\* Constraints.
+\- Scope.
 
-\* Next safe move.
+\- Constraints.
+
+\- Next safe move.
 
 
 
 Movement should not occur before orientation is established.
 
 
+
+User override cannot convert unresolved degraded state into normal state.
 
