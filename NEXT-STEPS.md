@@ -1,214 +1,117 @@
-\# NEXT-STEPS
+# NEXT-STEPS
 
+Status: Post-CRH-0.1 Planning
 
+Purpose: Identify the next major work items following the CRH-0.1 release baseline.
 
-Status: Planning
+---
 
-
-
-Purpose: Identify the next major work items following integration of the Bootstrap Source-of-Record architecture.
-
-
-
-\---
-
-
-
-\## Current Repository State
-
-
+## Current Repository State
 
 Completed:
 
+* Bootstrap source-of-record established
+* Invocation artifact separated from bootstrap artifact
+* Re-entry procedure documented
+* Bootstrap-critical verification implemented
+* Main branch verified and published
+* Initial conformance framework created
+* Degradation test framework created
+* Release checklist created
+* CRH-0.1 release notes created
+* CRH-0.1 release tag created
+* Initial degradation case study captured
 
+---
 
-\* Bootstrap source-of-record established
-
-\* Invocation artifact separated from bootstrap artifact
-
-\* Re-entry procedure documented
-
-\* Bootstrap-critical verification implemented
-
-\* Verification stabilization completed
-
-\* Main branch verified and published
-
-
-
-\---
-
-
-
-\## Priority 1: Conformance Framework
-
-
+## Priority 1: Trust Boundary
 
 Artifact:
-
-
-
-CONFORMANCE\_TESTS.md
-
-
-
-Purpose:
-
-
-
-Define repeatable tests that determine whether an implementation conforms to CRH behavioral requirements.
-
-
-
-Initial candidate tests:
-
-
-
-\* CT-001 Bootstrap Critical Verification Integrity
-
-\* CT-002 Unknown Context Disclosure
-
-\* CT-003 Degraded State Persistence
-
-\* CT-004 Re-entry Orientation
-
-\* CT-005 Authority Disclosure
-
-
-
-\---
-
-
-
-\## Priority 2: Trust Boundary
-
-
-
-Artifact:
-
-
 
 TRUST-BOUNDARY.md
 
-
-
 Purpose:
-
-
 
 Explicitly identify what CRH does and does not claim.
 
-
-
 Areas to address:
 
+* Continuity
+* Memory
+* Identity
+* Authorship
+* Authority
+* Authentication
 
+---
 
-\* Continuity
-
-\* Memory
-
-\* Identity
-
-\* Authorship
-
-\* Authority
-
-\* Authentication
-
-
-
-\---
-
-
-
-\## Priority 3: Version Declaration
-
-
+## Priority 2: Version Declaration
 
 Artifact:
 
-
-
 VERSION.md
 
-
-
 Purpose:
-
-
 
 Provide a clear declaration of:
 
+* Specification version
+* Status
+* Supported controls
+* Known limitations
+* Compatibility expectations
 
+---
 
-\* Specification version
+## Priority 3: Escalation Model
 
-\* Status
+Artifact:
 
-\* Supported controls
-
-\* Known limitations
-
-\* Compatibility expectations
-
-
-
-\---
-
-
-
-\## Priority 4: Release Governance
-
-
+ESCALATION_MODEL.md
 
 Purpose:
-
-
-
-Define requirements for promotion and release.
-
-
-
-Candidate controls:
-
-
-
-\* Verification required
-
-\* Conformance review required
-
-\* Changelog update required
-
-\* Release approval criteria
-
-
-
-\---
-
-
-
-\## Priority 5: Escalation Model
-
-
-
-Purpose:
-
-
 
 Define how CRH implementations should behave when authority, evidence, safety, or uncertainty thresholds are exceeded.
 
+---
 
+## Priority 4: Additional Conformance Coverage
 
-\---
+Purpose:
 
+Expand conformance tests beyond the initial framework.
 
+Candidate areas:
 
-\## Next Recommended Work Session
+* Trust-boundary disclosure
+* Version disclosure
+* Escalation behavior
+* Refusal under unresolved degradation
+* Predictive degradation notification
+* Audit-trail sufficiency
 
+---
 
+## Priority 5: Public Release Hardening
 
-Create CONFORMANCE\_TESTS.md and implement CT-001 using the bootstrap verification failure and recovery sequence observed during integration of the Bootstrap Source-of-Record architecture.
+Purpose:
 
+Prepare the repository for external readers and early testers.
 
+Candidate controls:
 
+* README clarity review
+* Release checklist validation
+* License confirmation
+* Tag/release consistency check
+* Documentation freshness review
+
+---
+
+## Next Recommended Work Session
+
+Create TRUST-BOUNDARY.md.
+
+Rationale:
+
+The CRH-0.1 baseline now has bootstrap, verification, conformance, degradation, and release artifacts. The next highest-risk gap is claim control: clearly stating what CRH does not prove, does not preserve, and does not authorize.
