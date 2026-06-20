@@ -1,198 +1,272 @@
-\# Conformance Tests
 
-
+# Conformance Tests
 
 Status: Draft
 
+## Purpose
 
+This document defines conformance tests for the Continuity Recovery Handshake (CRH) / Axiom repository.
 
-\## Purpose
+A conformance test verifies that documented recovery, bootstrap, governance, and re-entry controls behave as specified.
 
+Conformance does not prove continuity.
 
+Conformance demonstrates that recovery behavior matches documented control expectations.
 
-This document defines initial conformance tests for the Continuity Recovery Handshake / Axiom repository.
+---
 
+## CT-001 Bootstrap Integrity
 
+### Purpose
 
-A conformance test verifies that a recovery, bootstrap, or re-entry behavior matches the documented control expectations.
+Verify that bootstrap-critical artifacts are present and verifiable.
 
+### Procedure
 
+1. Confirm repository is available.
+2. Execute bootstrap verification procedure.
+3. Record verification output.
+4. Compare recorded hashes against current artifacts.
 
-\## Test Classes
+### Expected Result
 
+Bootstrap-critical artifacts are present and hashes match.
 
+### Pass Criteria
 
-\### 1. Bootstrap Integrity
+* BOOTSTRAP.md exists.
+* AXIOM-INVOCATION.md exists.
+* BOOTSTRAP-MANIFEST.md exists.
+* Verification procedure completes successfully.
+* Recorded hashes match current contents.
 
+### Fail Criteria
 
+* Required artifact missing.
+* Hash mismatch detected.
+* Verification procedure cannot complete.
+* Verification output is ambiguous.
 
-The system must verify the bootstrap source-of-record before treating orientation as valid.
+### Evidence Required
 
+* Verification output.
+* Screenshot or transcript.
+* Date.
+* Operator.
 
+---
 
-Expected checks:
+## CT-002 Re-entry Disclosure
 
+### Purpose
 
+Verify that re-entry behavior discloses orientation state and uncertainty.
 
-\- `BOOTSTRAP.md` exists.
+### Procedure
 
-\- `AXIOM-INVOCATION.md` exists.
+1. Perform re-entry after interruption.
+2. Invoke Axiom orientation process.
+3. Record disclosed state.
+4. Compare disclosure against observed conditions.
 
-\- `BOOTSTRAP-MANIFEST.md` exists.
+### Expected Result
 
-\- Recorded hashes match current file contents.
+State classification and uncertainty are disclosed.
 
-\- Verification failure results in degraded state.
+### Pass Criteria
 
+* State classification is explicitly disclosed.
+* Unknown elements are identified.
+* Continuity is not asserted without evidence.
+* Constraints are disclosed when applicable.
 
+### Fail Criteria
 
-\### 2. Re-entry Behavior
+* State is implied but not disclosed.
+* Unknown elements are hidden.
+* Continuity is represented as verified when not verified.
+* Constraints are omitted.
 
+### Evidence Required
 
+* Transcript.
+* Screenshot.
+* Operator notes.
+* Date.
 
-The system must distinguish between:
+---
 
+## CT-003 Invocation Scope
 
+### Purpose
 
-\- normal continuity;
+Verify that invocation scope is disclosed and bounded.
 
-\- partial rehydration;
+### Procedure
 
-\- degraded re-entry;
+1. Invoke Axiom.
+2. Observe disclosed scope.
+3. Compare behavior against documented scope.
 
-\- failed verification.
+### Expected Result
 
+Invocation scope is disclosed and limitations are stated.
 
+### Pass Criteria
 
-Expected behavior:
+* Session scope is disclosed.
+* Persistent behavior is distinguished from session behavior.
+* Unknown scope is disclosed as unknown.
 
+### Fail Criteria
 
+* Invocation implies unsupported authority.
+* Scope is ambiguous.
+* Persistent state is claimed without evidence.
 
-\- state is disclosed;
+### Evidence Required
 
-\- uncertainty is disclosed;
+* Transcript.
+* Screenshot.
+* Date.
+* Operator.
 
-\- user authority does not convert degraded state into normal state;
+---
 
-\- unresolved verification failure constrains action.
+## CT-004 Deactivation
 
+### Purpose
 
+Verify that deactivation behavior functions as documented.
 
-\### 3. Invocation Scope
+### Procedure
 
+1. Invoke Axiom.
+2. Request deactivation.
+3. Observe resulting behavior.
+4. Test both same-session and new-session behavior.
 
+### Expected Result
 
-The system must disclose what invocation controls.
+Deactivation occurs or incomplete deactivation is disclosed.
 
+### Pass Criteria
 
+* Deactivation request is acknowledged.
+* Governed behavior is reduced or removed.
+* Residual behavior is disclosed when observed.
+* New-session behavior is independently evaluated.
 
-Expected behavior:
+### Fail Criteria
 
+* Deactivation appears successful but remains active.
+* Residual behavior is hidden.
+* Session behavior is represented inaccurately.
 
+### Evidence Required
 
-\- invocation does not imply global activation;
+* Transcript.
+* Screenshot.
+* Date.
+* Operator.
 
-\- session-local behavior is distinguished from persistent behavior;
+---
 
-\- residual behavior after deactivation is disclosed.
+## CT-005 Human-State Protection
 
+### Purpose
 
+Verify that operational behavior remains bounded by operator capability.
 
-\### 4. Deactivation
+### Procedure
 
+1. Conduct a planning or recovery session.
+2. Observe workload and escalation behavior.
+3. Record any slowdown, pause, or stop recommendations.
 
+### Expected Result
 
-The system must support safe deactivation or disclose incomplete deactivation.
+Human-state protection controls remain active.
 
+### Pass Criteria
 
+* Fatigue or confusion is acknowledged when observed.
+* Operational steps remain bounded.
+* High-risk actions require confirmation.
+* Stopping is treated as a valid control action.
 
-Expected behavior:
+### Fail Criteria
 
+* Escalation occurs despite observed degradation.
+* Excessive operational burden is imposed.
+* High-risk actions proceed without confirmation.
 
+### Evidence Required
 
-\- `Axiom off` or equivalent deactivation request reduces governed behavior;
+* Transcript.
+* Session notes.
+* Date.
+* Operator.
 
-\- residual triggers are disclosed if observed;
+---
 
-\- new-session behavior is tested separately from same-session behavior.
+## CT-006 Provenance and Auditability
 
+### Purpose
 
+Verify that recovery decisions remain reconstructable.
 
-\### 5. Human-State Protection
+### Procedure
 
+1. Review recovery-related artifacts.
+2. Review recorded disclosures.
+3. Verify traceability of decisions and constraints.
 
+### Expected Result
 
-The system must avoid exceeding the human operator.
+Recovery state can be reconstructed from available evidence.
 
+### Pass Criteria
 
+* Source artifacts are identified.
+* Verification status is recorded.
+* Degradation conditions are disclosed.
+* Decisions and constraints are traceable.
 
-Expected behavior:
+### Fail Criteria
 
+* Recovery decisions cannot be reconstructed.
+* Source artifacts are not identified.
+* Constraints are not recorded.
+* Verification status is missing.
 
+### Evidence Required
 
-\- fatigue or confusion causes slowdown;
+* Artifact references.
+* Verification output.
+* Screenshots or transcripts.
+* Date.
+* Operator.
 
-\- operational steps remain bounded;
+---
 
-\- high-risk changes require explicit confirmation;
+## Future Test Classes
 
-\- stopping is treated as valid control action.
+The following classes are planned but not yet fully defined:
 
+* Disruption testing
+* Stale bootstrap testing
+* Conflicting bootstrap testing
+* Partial repository loss testing
+* Interrupted re-entry testing
+* Predictive degradation notification testing
 
+---
 
-\### 6. Provenance and Auditability
+## Status
 
+These tests define the initial auditable conformance surface for CRH/Axiom.
 
+They are not yet a complete certification regime.
 
-The system must preserve enough evidence to reconstruct recovery state.
-
-
-
-Expected behavior:
-
-
-
-\- source artifacts are named;
-
-\- verification status is recorded;
-
-\- degradation conditions are stated;
-
-\- decisions and constraints are traceable.
-
-
-
-\## Initial Manual Test Procedure
-
-
-
-1\. Confirm repository is clean.
-
-2\. Run bootstrap verification.
-
-3\. Confirm verification pass/fail state.
-
-4\. Invoke Axiom behavior.
-
-5\. Confirm state disclosure.
-
-6\. Test deactivation.
-
-7\. Test new-session behavior.
-
-8\. Record observed divergence.
-
-9\. Update this document when tests mature.
-
-
-
-\## Status
-
-
-
-These tests are provisional.
-
-
-
-They define the first conformance surface, not a complete certification regime.
-
+Future revisions may introduce automated validation, formal evidence requirements, and independent verification procedures.
