@@ -1,0 +1,63 @@
+{
+  "schema": "CRH-STATE-0.1",
+  "state": "Partial",
+  "state_basis": [
+    "Repository branch and synchronization verified",
+    "Bootstrap-critical verification passed",
+    "Bootstrap source-of-record verified by inspection",
+    "Axiom invocation artifact verified by inspection"
+  ],
+  "continuity_claim": false,
+  "orientation": {
+    "known_context": [
+      "Repository is on main branch",
+      "Repository is synchronized with origin/main",
+      "Bootstrap-critical artifact integrity is verified",
+      "BOOTSTRAP.md is the declared bootstrap source-of-record",
+      "AXIOM-INVOCATION.md is the declared operational invocation artifact"
+    ],
+    "unknown_context": [
+      "Runtime continuity",
+      "Account-wide synchronization",
+      "Cross-device operational synchronization"
+    ],
+    "scope": "Current repository state and declared Axiom/CRH bootstrap behavior",
+    "constraints": [
+      "No continuity claim is made",
+      "Current evidence does not establish runtime, account-wide, or cross-device continuity",
+      "State is based on currently observed repository evidence"
+    ],
+    "next_safe_move": "Record the completed orientation and verification evidence without altering existing bootstrap-critical artifacts"
+  },
+  "verification": {
+    "status": "Verified",
+    "classes": [
+      "Structural Verification",
+      "Byte-Faithful Verification"
+    ],
+    "evidence": [
+      "git status: main branch, synchronized with origin/main",
+      "AXIOM-INVOCATION.md SHA-256 verified",
+      "BOOTSTRAP.md SHA-256 verified",
+      "BOOTSTRAP-MANIFEST.md SHA-256 verified",
+      "REENTRY.md SHA-256 verified",
+      "verify-bootstrap.ps1 SHA-256 verified",
+      "BOOTSTRAP.md inspected as bootstrap source-of-record",
+      "AXIOM-INVOCATION.md inspected as operational invocation artifact"
+    ]
+  },
+  "trust": {
+    "assessment": "Evidence-supported",
+    "basis": [
+      "Bootstrap-critical artifacts passed SHA-256 verification",
+      "Bootstrap source-of-record and invocation artifact were inspected and correspond to their declared roles"
+    ]
+  },
+  "authority": {
+    "assessment": "Evidence-bounded",
+    "basis": [
+      "Current assessment is limited to observed repository and declared bootstrap evidence",
+      "No authority is inferred beyond the verified evidence"
+    ]
+  }
+}

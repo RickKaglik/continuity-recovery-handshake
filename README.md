@@ -101,6 +101,7 @@ Key repository artifacts include:
 - TRUST-BOUNDARY.md
 - VERSION.md
 - RELEASE_NOTES_CRH_0_1.md
+- CRH-STATE.json — machine-readable current operational state; not bootstrap-critical and does not establish continuity
 
 ---
 
