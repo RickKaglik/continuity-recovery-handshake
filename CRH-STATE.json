@@ -7,6 +7,32 @@
     "Bootstrap source-of-record verified by inspection",
     "Axiom invocation artifact verified by inspection"
   ],
+  "evidence_ledger": [
+    {
+      "evidence": "Repository branch and synchronization verified",
+      "class": "Structural Verification",
+      "supports": "Repository orientation and synchronization",
+      "limitation": "Does not establish runtime, account-wide, or cross-device continuity"
+    },
+    {
+      "evidence": "Bootstrap-critical verification passed",
+      "class": "Byte-Faithful Verification",
+      "supports": "Integrity of declared bootstrap-critical artifacts",
+      "limitation": "Does not establish runtime continuity or operational identity"
+    },
+    {
+      "evidence": "Bootstrap source-of-record verified by inspection",
+      "class": "Inspection Verification",
+      "supports": "Identification of BOOTSTRAP.md as the declared bootstrap source-of-record",
+      "limitation": "Inspection does not independently establish runtime continuity"
+    },
+    {
+      "evidence": "Axiom invocation artifact verified by inspection",
+      "class": "Inspection Verification",
+      "supports": "Identification of AXIOM-INVOCATION.md as the declared operational invocation artifact",
+      "limitation": "Inspection does not establish runtime continuity or authority beyond the observed artifact"
+    }
+  ],
   "continuity_claim": false,
   "orientation": {
     "known_context": [
