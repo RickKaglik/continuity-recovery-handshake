@@ -554,3 +554,38 @@ Assess authority.
 
 Then move.
 
+
+State Transition Rules
+
+State transitions are evidence-driven.
+
+A transition should occur only when observable evidence supports the resulting state. Elapsed time, behavioral familiarity, expectation, or assumption does not by itself justify a state transition.
+
+Permitted Transitions
+
+| From | To | Condition |
+| --- | --- | --- |
+| Unavailable | Partial | Sufficient orientation becomes available to establish a limited operational context. |
+| Partial | Normal | Required evidence is obtained and uncertainty is reduced sufficiently for normal operational movement. |
+| Partial | Degraded | Evidence becomes incomplete, contradictory, or unverifiable such that operational constraints must increase. |
+| Partial | Blocked | Required evidence cannot be obtained and movement must stop. |
+| Normal | Partial | Relevant uncertainty appears, but sufficient orientation remains for limited operation. |
+| Normal | Degraded | Evidence supporting the current operating state becomes incomplete, contradictory, or unverifiable. |
+| Normal | Blocked | A required control or evidence condition fails and movement must stop. |
+| Degraded | Partial | Sufficient evidence is recovered to restore useful orientation, but not enough for normal operation. |
+| Degraded | Normal | The conditions causing degradation are resolved and required evidence is verified. |
+| Degraded | Blocked | Required evidence remains unavailable or a control condition prevents further movement. |
+| Blocked | Partial | Previously missing required evidence becomes available and permits limited reassessment. |
+| Blocked | Normal | Required evidence is restored and all applicable controls support normal movement. |
+| Blocked | Degraded | Evidence permits reassessment but remains incomplete or contradictory. |
+
+Transition Constraints
+
+No transition is justified solely by elapsed time, assumption, behavioral familiarity, or expectation.
+
+A transition must be supported by newly observed or re-verified evidence appropriate to the destination state.
+
+Unavailable is intentionally asymmetric. It indicates that assessment cannot presently be performed. Recovery from Unavailable therefore requires sufficient evidence to establish an assessable state before further state progression occurs.
+
+State transitions do not establish continuity, identity, authorship, authority, authentication, or integrity beyond the evidence actually verified.
+
