@@ -38,7 +38,11 @@ Project overview.
 
 
 
-2\. WHAT-IS-CRH.md
+2\. CORE-CONCEPTS.md
+
+Foundational definitions of continuity, recovery, handshake, and resumption.
+
+3\. WHAT-IS-CRH.md
 
 
 
@@ -46,7 +50,7 @@ Public explanation of CRH.
 
 
 
-3\. MATURITY.md
+4\. MATURITY.md
 
 
 
@@ -54,7 +58,7 @@ Current maturity assessment.
 
 
 
-4\. VERSION.md
+5\. VERSION.md
 
 
 
@@ -62,7 +66,7 @@ Current specification version.
 
 
 
-5\. CRH-CONTROL-MODEL.md
+6\. CRH-CONTROL-MODEL.md
 
 
 
