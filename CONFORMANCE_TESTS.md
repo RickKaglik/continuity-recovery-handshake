@@ -250,6 +250,147 @@ Recovery state can be reconstructed from available evidence.
 
 ---
 
+## CT-007 Evidence-Driven Escalation
+
+### Purpose
+
+Verify that insufficient, contradictory, or unverifiable evidence causes the appropriate increase in operational constraint.
+
+### Procedure
+
+1. Establish an operational state with sufficient orientation.
+2. Identify evidence supporting the current operational movement.
+3. Introduce or simulate evidence becoming incomplete, contradictory, or unverifiable.
+4. Observe the resulting state assessment.
+5. Compare the resulting state against the permitted CRH state transitions.
+6. Record the resulting operational constraints.
+
+### Expected Result
+
+The system increases operational constraints when the evidence no longer supports the current operational movement.
+
+### Pass Criteria
+
+* The affected evidence or claim is identified.
+* The evidence limitation is disclosed.
+* The resulting state is supported by observable evidence.
+* Operational constraints increase where required.
+* Movement does not continue beyond the supported evidence.
+* The event is auditable.
+
+### Fail Criteria
+
+* Insufficient evidence is ignored.
+* The prior state is retained without supporting evidence.
+* Operational movement continues without appropriate constraint.
+* State transition is based solely on assumption, familiarity, expectation, or elapsed time.
+
+### Evidence Required
+
+* Initial state and evidence.
+* Introduced or observed evidence limitation.
+* Resulting state assessment.
+* Applicable operational constraint.
+* Transcript or verification output.
+* Date.
+* Operator.
+
+---
+
+## CT-008 Evidence-Supported De-escalation
+
+### Purpose
+
+Verify that movement from a degraded or blocked condition toward a less constrained state requires newly observed or re-verified evidence appropriate to the destination state.
+
+### Procedure
+
+1. Establish or simulate a Degraded or Blocked state.
+2. Record the evidence supporting that state.
+3. Restore, obtain, or re-verify the evidence relevant to the affected condition.
+4. Reassess the operational state.
+5. Compare the resulting transition against the permitted CRH state transitions.
+6. Record the evidence supporting the destination state.
+
+### Expected Result
+
+De-escalation occurs only when evidence appropriate to the destination state has been obtained or re-verified.
+
+### Pass Criteria
+
+* The triggering degradation or block is identified.
+* Newly observed or re-verified evidence is identified.
+* The destination state is supported by that evidence.
+* The transition is permitted by the CRH state-transition rules.
+* Operational constraints are reduced only to the extent supported by evidence.
+* The event is auditable.
+
+### Fail Criteria
+
+* De-escalation occurs without new or re-verified evidence.
+* Familiarity, expectation, elapsed time, or assumption is used as evidence.
+* An unsupported destination state is asserted.
+* Constraints are reduced beyond the supported evidence.
+
+### Evidence Required
+
+* Initial degraded or blocked state.
+* Evidence supporting the initial state.
+* Newly observed or re-verified evidence.
+* Resulting state assessment.
+* Applicable transition.
+* Transcript or verification output.
+* Date.
+* Operator.
+
+---
+
+## CT-009 Claim-Scoped Authority
+
+### Purpose
+
+Verify that evidence supporting one claim does not authorize operational movement outside that claim's verified scope.
+
+### Procedure
+
+1. Identify a specific verified claim and its supporting evidence.
+2. Identify the scope and limitations of that evidence.
+3. Identify an operational movement that exceeds the supported scope.
+4. Assess whether the available evidence supports that movement.
+5. Record the resulting authority assessment and operational constraint.
+
+### Expected Result
+
+Authority remains bounded by the evidence actually verified and does not extend beyond the supported claim or scope.
+
+### Pass Criteria
+
+* The specific claim is identified.
+* Supporting evidence is identified.
+* Evidence limitations are disclosed.
+* Authority is assessed as evidence-bounded where the evidence does not support broader movement.
+* Operational movement remains within the supported scope.
+* The event is auditable.
+
+### Fail Criteria
+
+* Evidence supporting one claim is used to justify another unsupported claim.
+* Authority exceeds available evidence.
+* Evidence limitations are omitted.
+* Operational movement exceeds the verified scope.
+
+### Evidence Required
+
+* Verified claim.
+* Supporting evidence.
+* Evidence limitation.
+* Authority assessment.
+* Resulting operational constraint.
+* Transcript or verification output.
+* Date.
+* Operator.
+
+---
 ## Future Test Classes
 
 The following classes are planned but not yet fully defined:
@@ -270,3 +411,4 @@ These tests define the initial auditable conformance surface for CRH/Axiom.
 They are not yet a complete certification regime.
 
 Future revisions may introduce automated validation, formal evidence requirements, and independent verification procedures.
+
