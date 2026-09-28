@@ -212,6 +212,20 @@ TRUST-BOUNDARY.md
 
 Trust limitations and disclosure.
 
+TRUST-MODEL.md
+
+
+
+Defines the evidence-bounded trust model.
+
+
+
+ESCALATION_MODEL.md
+
+
+
+Defines evidence-driven escalation and constraint behavior.
+
 
 
 CONFORMANCE\_TESTS.md
