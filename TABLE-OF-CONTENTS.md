@@ -130,6 +130,27 @@ Defines the overall CRH control architecture.
 
 
 
+
+Prerequisites and Boundaries
+
+
+PREREQUISITES.md
+
+
+Defines the prerequisites for meaningful CRH operation and conformance assessment.
+
+
+CROSS-CHANNEL-BOUNDARY.md
+
+
+Defines continuity boundaries across channels, devices, sessions, and environments.
+
+
+ENVIRONMENT-SETUP.md
+
+
+Defines the procedure for introducing and establishing a new operational environment.
+
 Bootstrap
 
 
@@ -201,6 +222,15 @@ BYTE-FAITHFUL-VERIFICATION.md
 Byte-level cryptographic verification model.
 
 
+
+
+Validation
+
+
+CROSS-DEVICE-TEST-GUIDE.md
+
+
+Repeatable validation procedure for cross-device and cross-environment behavior.
 
 Governance
 
@@ -397,4 +427,3 @@ Consult Governance when operational limits are important.
 
 
 Review Engineering Records to understand how the framework evolved.
-
