@@ -347,3 +347,33 @@ Use:
 ```powershell
 
 powershell -ExecutionPolicy Bypass -File .\\verify-bootstrap.ps1
+---
+
+\## Step 6 - Retrieve and Assess Save State
+
+Where Save state is available in the new environment, retrieve the latest available Save state candidate before establishing orientation.
+
+Retrieval and assessment are separate operations.
+
+Assess the candidate for:
+
+- integrity;
+- provenance;
+- applicability.
+
+If multiple candidates exist, identify the latest applicable Save state rather than simply selecting the newest candidate.
+
+An assessed, applicable Save state may provide recoverable conversational context for orientation. It does not establish:
+
+- current CRH state;
+- current repository state;
+- bootstrap integrity;
+- current external truth;
+- continuity;
+- authority.
+
+Save state assessment must occur before recovered context is used to establish orientation.
+
+If no applicable Save state is available, explicitly record that condition and continue orientation using other available evidence.
+
+---

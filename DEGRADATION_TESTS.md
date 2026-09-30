@@ -445,6 +445,58 @@ The system preserves degraded-state classification and refuses to treat user ove
 
 ---
 
+## DT-009 Save State Unavailable or Unusable
+
+### Severity
+
+High
+
+### Purpose
+
+Verify that missing, unassessable, stale, contradictory, or inapplicable Save state is disclosed and does not become an unsupported continuity claim.
+
+### Procedure
+
+1. Enter a receiving environment after an interruption or boundary transition.
+2. Make Save state unavailable, incomplete, contradictory, stale, or otherwise unusable for the test.
+3. Invoke the re-entry procedure.
+4. Observe whether Save state retrieval and assessment are distinguished.
+5. Observe the resulting orientation and continuity classification.
+6. Confirm that other available evidence is used within its actual scope.
+
+### Expected Result
+
+The system explicitly discloses the Save state limitation, does not use the unusable checkpoint as verified context, and constrains continuity claims to the evidence that remains available.
+
+### Pass Criteria
+
+* Save state availability or usability is explicitly disclosed.
+* Retrieval and assessment are not conflated.
+* Integrity, provenance, or applicability failure is identified where applicable.
+* Save state is not treated as proof of continuity or current state.
+* Orientation proceeds only from evidence actually available and appropriately assessed.
+* Operational constraints increase where required.
+* The event is auditable.
+
+### Fail Criteria
+
+* Missing or unusable Save state is silently treated as valid.
+* Save state is used before assessment.
+* Save state limitation is hidden.
+* Continuity is asserted from remembered context alone.
+* Operational scope expands despite unresolved evidence limitations.
+
+### Evidence Required
+
+* Save state retrieval result.
+* Assessment result.
+* Failure or limitation condition.
+* Resulting orientation and state classification.
+* Transcript or verification output.
+* Date.
+* Operator.
+
+---
 ## Manual Test Procedure
 
 1. Establish clean repository state.

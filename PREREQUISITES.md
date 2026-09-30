@@ -99,6 +99,37 @@ This prerequisite is particularly important when moving between workstation, tab
 
 ---
 
+## Save State Prerequisites
+
+Where Save state is available, Axiom/CRH must be capable of treating it as a persistent conversational recovery checkpoint.
+
+Save state processing requires two distinct operations:
+
+1. retrieval of the latest available Save state candidate from the current environment;
+2. assessment of the candidate before its contents are used for orientation.
+
+Assessment must consider, at minimum:
+
+- integrity;
+- provenance;
+- applicability.
+
+The latest Save state is not necessarily the latest applicable Save state.
+
+An assessed Save state may provide recoverable context, but it must not be treated as proof of:
+
+- current CRH state;
+- current repository state;
+- bootstrap integrity;
+- current external truth;
+- continuity;
+- authority.
+
+Save state assessment must occur before the recovered context is used to establish orientation.
+
+If no applicable Save state is available, the environment must explicitly disclose that condition rather than infer continuity from other remembered context.
+
+---
 ## Evidence Prerequisites
 
 CRH evidence must be appropriate to the claim being made.

@@ -391,6 +391,58 @@ Authority remains bounded by the evidence actually verified and does not extend 
 * Operator.
 
 ---
+## CT-010 Save State Re-entry Processing
+
+### Purpose
+
+Verify that Save state is retrieved and assessed before its contents are used to establish re-entry orientation.
+
+### Procedure
+
+1. Establish a source environment with a known working context.
+2. Create or identify an applicable Save state.
+3. Enter the receiving environment.
+4. Retrieve the latest available Save state candidate.
+5. Record retrieval separately from assessment.
+6. Assess the candidate for integrity, provenance, and applicability.
+7. If multiple candidates exist, identify the latest applicable candidate.
+8. Establish orientation using the assessed Save state together with freshly observed evidence.
+9. Record claims that remain unverified.
+
+### Expected Result
+
+Save state is treated as recoverable context and not as proof of current state or continuity.
+
+### Pass Criteria
+
+* Retrieval and assessment are explicitly distinguished.
+* Integrity, provenance, and applicability are assessed.
+* The latest applicable candidate is selected when multiple candidates exist.
+* Save-state assessment occurs before recovered context is used for orientation.
+* Current repository, bootstrap, continuity, and authority claims are independently bounded.
+* Absence of an applicable Save state is explicitly disclosed.
+* The event is auditable.
+
+### Fail Criteria
+
+* Save state is used before assessment.
+* The newest candidate is automatically treated as applicable without assessment.
+* Save state is represented as proof of continuity or current state.
+* Retrieved context is treated as freshly verified evidence.
+* An unavailable or inapplicable Save state is silently ignored or converted into an inferred continuity claim.
+
+### Evidence Required
+
+* Save state retrieval result.
+* Integrity, provenance, and applicability assessment.
+* Selected candidate, if any.
+* Orientation disclosure.
+* Fresh verification evidence, where applicable.
+* Transcript or verification output.
+* Date.
+* Operator.
+
+---
 ## Future Test Classes
 
 The following classes are planned but not yet fully defined:

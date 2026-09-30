@@ -190,19 +190,36 @@ If repository access exists only in the source environment, the receiving enviro
 
 ### Step 7 — Test Saved State
 
-If Save State was used, determine what information survives the transition.
+If Save State was used, process it as a recovery checkpoint rather than as proof of continuity.
+
+The receiving environment must preserve the following sequence:
+
+1. retrieve the latest available Save state candidate;
+2. assess the candidate for integrity, provenance, and applicability;
+3. use an assessed, applicable Save state as recoverable context for orientation;
+4. establish orientation using the Save state together with freshly observed evidence;
+5. keep Save state distinct from current repository state, bootstrap integrity, continuity, and authority.
+
+If multiple Save state candidates are available, the test should determine whether the receiving environment can identify the latest **applicable** candidate rather than simply selecting the newest candidate.
 
 Record:
 
-- state that was successfully recovered;
-- state that was incomplete;
-- state that was stale;
-- state that could not be verified.
+- candidate(s) retrieved;
+- retrieval result;
+- integrity assessment;
+- provenance assessment;
+- applicability assessment;
+- selected applicable Save state, if any;
+- context recovered from it;
+- context that remained unverified;
+- any stale, contradictory, or unusable candidate;
+- whether orientation occurred only after Save-state assessment.
 
 The test must confirm that Save State functions as a context/recovery mechanism without becoming an automatic continuity claim.
 
----
+If no applicable Save state is available, the receiving environment should explicitly record that condition and continue orientation using other available evidence.
 
+---
 ### Step 8 — Test Authority
 
 Determine whether the receiving environment distinguishes:
