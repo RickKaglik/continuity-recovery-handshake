@@ -72,7 +72,42 @@ If source, scope, version, or invocation behavior cannot be verified, classify c
 
 ---
 
-## Step 5 - Assess Continuity State
+## Step 5 - Retrieve and Assess Save State
+
+Retrieve the latest available Save state candidate from the receiving environment.
+
+Save state retrieval and Save state assessment are separate operations.
+
+Retrieval makes a Save state available for assessment. It does not establish that the Save state is valid, current, applicable, or trustworthy.
+
+Assess the retrieved Save state for:
+
+- integrity;
+- provenance;
+- applicability.
+
+If multiple Save state candidates are available, assess them as necessary to identify the latest applicable Save state.
+
+The latest Save state is not necessarily the latest applicable Save state.
+
+An assessed Save state may provide recoverable context for orientation.
+
+Save state does not establish:
+
+- CRH state;
+- repository state;
+- bootstrap integrity;
+- current external truth;
+- continuity;
+- authority.
+
+If no applicable Save state is available, explicitly record that condition and continue orientation using the evidence that is available.
+
+Save state assessment must occur before orientation is established.
+
+---
+
+## Step 6 - Assess Continuity State
 
 Normal:
 
@@ -108,7 +143,7 @@ Unavailable:
 
 ---
 
-## Step 6 - Declare Current State
+## Step 7 - Declare Current State
 
 Disclose:
 
