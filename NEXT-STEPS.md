@@ -2,13 +2,13 @@
 
 Status: Post-CRH-0.1 Planning
 
-Purpose: Identify the next major work items following the CRH-0.1 release baseline.
+Purpose: Identify the remaining work following the CRH-0.1 governance baseline and the completed Save State implementation/testing work.
 
 ---
 
 ## Current Repository State
 
-Completed:
+The following foundational controls and documentation are complete:
 
 * Bootstrap source-of-record established
 * Invocation artifact separated from bootstrap artifact
@@ -21,97 +21,143 @@ Completed:
 * CRH-0.1 release notes created
 * CRH-0.1 release tag created
 * Initial degradation case study captured
+* Trust boundary documented
+* Version declaration documented
+* Trust model documented
+* State transition rules documented
+* Observable verification documented
+* Save State semantics documented
+* Save State retrieval and assessment separated
+* Re-entry procedure updated to retrieve and assess Save State before orientation
+* Cross-channel continuity boundaries documented
+* Cross-device testing procedure documented
+* Environment setup and introduction boundaries documented
 
 ---
 
-## Priority 1: Trust Boundary
+## Recently Demonstrated
 
-Artifact:
+### Save State - Cross-Device Processing
 
-TRUST-BOUNDARY.md
+A preliminary cross-device test was completed on 2026-09-30.
 
-Purpose:
+The receiving tablet successfully:
 
-Explicitly identify what CRH does and does not claim.
+1. retrieved the latest applicable Save State;
+2. assessed the recovered context;
+3. incorporated the recovered context before orientation.
 
-Areas to address:
+The test also demonstrated the intended separation between Save State recovery and automatic continuity:
 
-* Continuity
-* Memory
-* Identity
-* Authorship
-* Authority
-* Authentication
+* recovered context was available;
+* repository/bootstrap state remained independently unverified;
+* continuity was not assumed.
 
----
+This is evidence of successful preliminary Save State processing.
 
-## Priority 2: Version Declaration
-
-Artifact:
-
-VERSION.md
-
-Purpose:
-
-Provide a clear declaration of:
-
-* Specification version
-* Status
-* Supported controls
-* Known limitations
-* Compatibility expectations
+It is not proof of full cross-device continuity.
 
 ---
 
-## Priority 3: Escalation Model
+# Remaining Parked Work
 
-Artifact:
-
-ESCALATION_MODEL.md
+## Priority 1: Cross-Device Communication-Drift Testing
 
 Purpose:
 
-Define how CRH implementations should behave when authority, evidence, safety, or uncertainty thresholds are exceeded.
+Determine how CRH behaves when recovered context is available but the receiving environment differs from the originating environment.
+
+The test should deliberately introduce a controlled difference after Save State recovery.
+
+Observe whether CRH:
+
+* preserves the distinction between recovered and current context;
+* distinguishes recovered context from current environment state;
+* detects or exposes relevant discrepancies;
+* avoids manufacturing continuity;
+* maintains verification boundaries;
+* maintains authority boundaries.
+
+Expected result:
+
+A documented observation showing how CRH handles divergence between recovered conversational context and current environmental evidence.
 
 ---
 
-## Priority 4: Additional Conformance Coverage
+## Priority 2: Expanded Continuity and Degradation Testing
 
 Purpose:
 
-Expand conformance tests beyond the initial framework.
+Extend the existing conformance/degradation framework using evidence from cross-device testing.
 
 Candidate areas:
 
-* Trust-boundary disclosure
-* Version disclosure
-* Escalation behavior
-* Refusal under unresolved degradation
-* Predictive degradation notification
-* Audit-trail sufficiency
+* communication drift;
+* recovered-context divergence;
+* unresolved verification;
+* stale or inapplicable Save State;
+* conflicting Save State candidates;
+* repository/bootstrap divergence;
+* authority boundary behavior following degraded orientation.
+
+Testing should be added only where the observed behavior justifies a formal test case.
 
 ---
 
-## Priority 5: Public Release Hardening
+## Priority 3: Evidence Consolidation
 
 Purpose:
 
-Prepare the repository for external readers and early testers.
+Maintain a structured record of what each experiment actually establishes.
 
-Candidate controls:
+Each recorded test should identify:
 
-* README clarity review
-* Release checklist validation
-* License confirmation
-* Tag/release consistency check
-* Documentation freshness review
+* initial state;
+* environment;
+* available Save State;
+* Save State assessment;
+* observed behavior;
+* independently verified facts;
+* unresolved facts;
+* resulting CRH classification;
+* demonstrated capability;
+* limitations of the observation.
+
+Conclusions must not exceed the evidence produced by the test.
 
 ---
 
-## Next Recommended Work Session
+## Priority 4: Maturity and Release Assessment
 
-Create TRUST-BOUNDARY.md.
+Purpose:
 
-Rationale:
+Evaluate whether the accumulated evidence supports any change to the current CRH maturity declaration.
 
-The CRH-0.1 baseline now has bootstrap, verification, conformance, degradation, and release artifacts. The next highest-risk gap is claim control: clearly stating what CRH does not prove, does not preserve, and does not authorize.
+Current principle:
+
+Further confidence should come primarily from evidence collection and repeatability rather than unnecessary framework construction.
+
+The current Experimental / governance-baseline characterization should remain unchanged unless subsequent evidence provides a documented basis for revision.
+
+---
+
+# Recommended Implementation Sequence
+
+1. Establish a fresh repository/bootstrap baseline.
+2. Design the communication-drift test.
+3. Execute the controlled cross-device test.
+4. Record the resulting evidence.
+5. Determine whether the observation exposes a model, documentation, or implementation gap.
+6. Add conformance/degradation coverage where justified.
+7. Consolidate evidence.
+8. Reassess maturity and remaining roadmap items.
+
+---
+
+## Current Session Target
+
+The immediate workstation objective is:
+
+**Fresh baseline -> communication-drift experiment design.**
+
+Do not repeat the completed Save State recovery test unless the new experiment requires it as a controlled baseline.
